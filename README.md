@@ -7,6 +7,31 @@ This project takes raw, messy monthly housing data for London boroughs and trans
 - **Original Source:** [Housing in London by Justinas Cirtautas (Kaggle)](https://www.kaggle.com/datasets/justinas/housing-in-london)
 - **File Used:** `housing_in_london_monthly_variables.csv`
 
+## 📂 Project Structure
+```text
+london-housing-pipeline/
+│
+├── data/                                                           # All data files
+│   ├── raw/                                                        # Original, unmodified data
+│   │   └── housing_in_london_monthly_variables.csv                 # Raw London housing data from Kaggle
+│   └── processed/                                                  # Cleaned, ML-ready data
+│       └── cleaned.parquet                                         # Final processed dataset
+│
+├── notebooks/                                                      # Jupyter notebooks for exploration
+│   └── london-housing-data-cleaning.ipynb                          # Initial data exploration and cleaning
+│
+├── src/                                                            # Python source code (modular pipeline)
+│   ├── __init__.py                                                 # Makes src/ a Python package
+│   ├── load_data.py                                                # Functions to load raw data
+│   ├── clean_data.py                                               # Functions to clean and transform data
+│   ├── feature_eng.py                                              # Functions to engineer ML features
+│   └── save_data.py                                                # Functions to export processed data
+│
+├── main.py                                                         # Orchestrator - runs the entire pipeline
+├── requirements.txt                                                # Python dependencies (pandas, pyarrow)
+└── README.md                                                       # Project documentation
+```
+
 ## 🧹 Key Data Cleaning Steps
 1. **Type Conversion:** Converted `date` to `datetime64[ns]` to enable time-series operations.
 2. **Text Standardization:** Applied `.str.title()` to the `area` column to fix inconsistent casing (e.g., "city of london" → "City of London").
