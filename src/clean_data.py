@@ -3,6 +3,9 @@ import pandas as pd
 
 def clean_housing_data(df: pd.DataFrame) -> pd.DataFrame:
     """Takes raw dataframe and returns a cleaned dataframe."""
+    # Force an independent copy to safely modify data without mutating the original.
+    df = df.copy()
+
     # Convert 'date' to actual datetime objects
     df['date'] = pd.to_datetime(df['date'])
 

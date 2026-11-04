@@ -49,7 +49,7 @@ To make the dataset ready for tree-based models (Random Forest, XGBoost) or regr
 
 ## 🚀 How to Use
 1. Clone this repository.
-2. Install dependencies: `pip install pandas numpy pyarrow`
+2. Install dependencies: `pip install pandas pyarrow`
 3. Load the optimized dataset in Python:
    ```python
    import pandas as pd
